@@ -1,32 +1,31 @@
-name: Flutter Android Build
+name: BabiLEvreni APK Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
-      - name: Flutter pub get
+          flutter-version: "3.22.0"
+
+      - name: Install dependencies
         run: flutter pub get
-      - name: Build APK (release)
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: flutter build apk --release
+
+      - name: Build APK
+        run: flutter build apk --release --split-per-abi
+
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: BabiLEvreni-Release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: BabiLEvreni-APK
+          path: build/app/outputs/flutter-apk/*.apk
