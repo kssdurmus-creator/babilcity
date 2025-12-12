@@ -1,7 +1,0 @@
-
-build/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.env
-android/key.properties
