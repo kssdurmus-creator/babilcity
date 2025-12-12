@@ -1,0 +1,31 @@
+name: babil_evrensel
+description: BabiLEvreni - Premium AI sports prediction app (full VIP).
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
+  flutter_dotenv: ^5.0.2
+  http: ^0.13.6
+  animations: ^2.0.5
+  shared_preferences: ^2.0.15
+  flutter_local_notifications: ^12.0.4
+  just_audio: ^0.9.31
+  flutter_svg: ^1.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/config.json
+    - assets/logo.png
+    - assets/vip_badge.png
+    - assets/animations/
